@@ -562,6 +562,11 @@
           // エントリが存在しない場合は追加してしまう
           await db.members.add(member);
         }
+        // 投稿者名は変更される事があるので、空で無ければ更新する
+        if (data.member_name && member.name != data.member_name ) {
+            member.name = data.member_name;
+            await db.members.update([data.service_id, data.member_id], {name:data.member_name});
+        }
 
         sendResponse(member);
       })()
