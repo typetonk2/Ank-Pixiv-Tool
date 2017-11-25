@@ -293,7 +293,7 @@ class AnkSite {
         }
 
         let pageNo = (info.facingNo ? AnkUtils.zeroPad(info.facingNo, info.pageDigits) + '_' : '') + AnkUtils.zeroPad(info.pageNo, info.pageDigits);
-        return [name, pageNo].join(this.prefs.mangaImagesSaveToFolder ? '/' : ' - ');
+        return [name, pageNo].join(this.prefs.mangaImagesSaveToFolder ? '/' : '-');
       })();
 
       return [p, info.ext].join('.');
